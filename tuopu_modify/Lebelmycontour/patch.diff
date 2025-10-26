@@ -1,0 +1,20 @@
+--- a/viewer_embed.py
++++ b/viewer_embed.py
+@@ -42,6 +42,22 @@ class VedoViewer(QWidget):
+-        self._vp = Plotter(qt_widget=self.vtkWidget, bg="white", axes=4)
++        self._vp = Plotter(qt_widget=self.vtkWidget, bg="white", axes=4)
++
++        # === Mouse interaction fix: force Trackball (no continuous spin on LMB hold) ===
++        try:
++            from vtkmodules.vtkInteractionStyle import vtkInteractorStyleTrackballCamera
++            style = vtkInteractorStyleTrackballCamera()
++        except Exception:
++            import vtk
++            style = vtk.vtkInteractorStyleTrackballCamera()
++
++        interactor = getattr(self._vp, "interactor", None) or getattr(self._vp, "_i", None)
++        if interactor is not None:
++            interactor.SetInteractorStyle(style)
++        # === end fix ===
++
+         # ... your other init code ...

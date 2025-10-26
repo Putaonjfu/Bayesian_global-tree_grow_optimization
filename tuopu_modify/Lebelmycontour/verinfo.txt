@@ -1,0 +1,23 @@
+# verinfo.txt
+VSVersionInfo(
+  ffi=FixedFileInfo(
+    filevers=(1,0,0,0),
+    prodvers=(1,0,0,0),
+    mask=0x3f, flags=0x0, OS=0x40004, fileType=0x1, subtype=0x0, date=(0,0)
+  ),
+  kids=[
+    StringFileInfo([
+      StringTable('080404B0', [  # zh-CN, Unicode；英文可用 '040904B0'
+        StringStruct('CompanyName',      'NJFU'),
+        StringStruct('FileDescription',  'Contour Labeling Tool'),
+        StringStruct('FileVersion',      '1.1'),
+        StringStruct('InternalName',     'Labeler MyContour'),
+        StringStruct('OriginalFilename', 'Labeler MyContour.exe'),
+        StringStruct('ProductName',      'Labeler MyContour'),
+        StringStruct('ProductVersion',   '1.1'),
+        StringStruct('LegalCopyright',   '© 2025 Senjer Feng')
+      ])
+    ]),
+    VarFileInfo([VarStruct('Translation', [2052, 1200])])  # 2052=zh-CN
+  ]
+)
